@@ -14,6 +14,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://zenvaspabkk.com/index.html">
 <link rel="alternate" hreflang="en" href="https://zenvaspabkk.com/index.html">
+<link rel="alternate" hreflang="zh-CN" href="https://zenvaspabkk.com/zh/index.html">
+<link rel="alternate" hreflang="th" href="https://zenvaspabkk.com/th/index.html">
 <link rel="alternate" hreflang="x-default" href="https://zenvaspabkk.com/index.html">
 
 <style>
@@ -352,7 +354,8 @@
   .mem-teaser p{color:#cdbf98; max-width:520px; margin:0 auto 20px;}
   .reels-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:900px; margin:0 auto;}
   @media (max-width:700px){.reels-grid{grid-template-columns:repeat(2,1fr); max-width:640px;}}
-  .reels-grid video{width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:8px; background:var(--ink); display:block;}
+  .reels-grid .reel-embed{position:relative; width:100%; aspect-ratio:9/16; border-radius:8px; overflow:hidden; background:var(--ink); display:block;}
+  .reels-grid .reel-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0; display:block;}
   .testimonials{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; max-width:1200px; margin:0 auto;}
   .t-card{background:var(--cream-soft); border:1px solid var(--line); border-radius:6px; padding:26px 22px 22px; display:flex; flex-direction:column;}
   .t-card .t-mark{font-family:var(--font-display); font-size:34px; line-height:1; color:var(--gold); opacity:.55; margin-bottom:6px;}
@@ -414,7 +417,7 @@
 
 <div class="promo-banner">
   <span class="promo-tag">Limited-time</span>
-  60-Min Private Onsen + 60-Min Aromatherapy for 2 Guests (120 min) — <b>3,888 THB</b> <span style="opacity:.55; text-decoration:line-through;">6,313 THB</span> &middot; <a href="https://lin.ee/Qcbmudy" target="_blank" rel="noopener" style="color:var(--cream); font-weight:800; text-decoration:underline; text-underline-offset:2px;">Book Now</a>
+  60-Min Private Onsen + 60-Min Aromatherapy for 2 Guests (120 min) — <b>3,888 THB</b> <span style="opacity:.55; text-decoration:line-through;">5,900 THB</span> <span style="opacity:.5; font-size:.75em;">(excl. VAT)</span> &middot; <a href="https://lin.ee/Qcbmudy" target="_blank" rel="noopener" style="color:var(--cream); font-weight:800; text-decoration:underline; text-underline-offset:2px;">Book Now</a>
 </div>
 <header>
   <div class="header-inner">
@@ -617,7 +620,7 @@
       <div class="hero-content">
         <span class="eyebrow">Limited-Time</span>
         <h2>Two, Together &mdash; 3,888 THB</h2>
-        <p class="sub">60 minutes in a private onsen room, plus 60 minutes of aromatherapy massage for two. 120 minutes, one price &mdash; down from 6,313 THB.</p>
+        <p class="sub">60 minutes in a private onsen room, plus 60 minutes of aromatherapy massage for two. 120 minutes, one price &mdash; down from 5,900 THB <span style="opacity:.75; font-size:.85em;">(excl. VAT)</span>.</p>
         <a class="hero-more-link" href="onsen-spa.html">Book This Offer &rarr;</a>
         <div class="cta-group"><a class="btn-book btn-book-solid" href="https://lin.ee/Qcbmudy" target="_blank" rel="noopener"><span class="bb-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M4 5.5C4 4.67 4.67 4 5.5 4h13c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H9l-4 3.5v-3.5H5.5C4.67 16 4 15.33 4 14.5v-9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
@@ -891,49 +894,14 @@
 <section class="section" id="reels" style="background:var(--cream-soft);">
   <div class="section-head"><span class="eyebrow">In Motion</span><h2>Zenva Reels</h2><p>A closer look, straight from our own social feed.</p></div>
   <div class="reels-grid" id="reelsGrid">
-    <video muted loop playsinline preload="metadata">
-      <source src="/zenva-website/assets/video/clip1.webm" type="video/webm">
-      <source src="/zenva-website/assets/video/clip1.mp4" type="video/mp4">
-    </video>
-    <video muted loop playsinline preload="metadata">
-      <source src="/zenva-website/assets/video/clip3.webm" type="video/webm">
-      <source src="/zenva-website/assets/video/clip3.mp4" type="video/mp4">
-    </video>
-    <video muted loop playsinline preload="metadata">
-      <source src="/zenva-website/assets/video/clip5.webm" type="video/webm">
-      <source src="/zenva-website/assets/video/clip5.mp4" type="video/mp4">
-    </video>
-    <video muted loop playsinline preload="metadata">
-      <source src="/zenva-website/assets/video/clip6.webm" type="video/webm">
-      <source src="/zenva-website/assets/video/clip6.mp4" type="video/mp4">
-    </video>
-    <video muted loop playsinline preload="metadata">
-      <source src="/zenva-website/assets/video/clip7.webm" type="video/webm">
-      <source src="/zenva-website/assets/video/clip7.mp4" type="video/mp4">
-    </video>
-    <video muted loop playsinline preload="metadata">
-      <source src="/zenva-website/assets/video/clip8.webm" type="video/webm">
-      <source src="/zenva-website/assets/video/clip8.mp4" type="video/mp4">
-    </video>
+    <div class="reel-embed"><iframe src="https://www.youtube.com/embed/WK9Nhbo-Qok?autoplay=1&mute=1&loop=1&playlist=WK9Nhbo-Qok&controls=0&modestbranding=1&rel=0&playsinline=1" title="Zenva Private Onsen & Spa" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe></div>
+    <div class="reel-embed"><iframe src="https://www.youtube.com/embed/MBOVPhceFNI?autoplay=1&mute=1&loop=1&playlist=MBOVPhceFNI&controls=0&modestbranding=1&rel=0&playsinline=1" title="Zenva Private Onsen & Spa" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe></div>
+    <div class="reel-embed"><iframe src="https://www.youtube.com/embed/5rwqpeh8AVo?autoplay=1&mute=1&loop=1&playlist=5rwqpeh8AVo&controls=0&modestbranding=1&rel=0&playsinline=1" title="Zenva Private Onsen & Spa" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe></div>
+    <div class="reel-embed"><iframe src="https://www.youtube.com/embed/PpkYZlFzGjI?autoplay=1&mute=1&loop=1&playlist=PpkYZlFzGjI&controls=0&modestbranding=1&rel=0&playsinline=1" title="Zenva Private Onsen & Spa" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe></div>
+    <div class="reel-embed"><iframe src="https://www.youtube.com/embed/bG4_dbZ9la4?autoplay=1&mute=1&loop=1&playlist=bG4_dbZ9la4&controls=0&modestbranding=1&rel=0&playsinline=1" title="Zenva Private Onsen & Spa" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe></div>
+    <div class="reel-embed"><iframe src="https://www.youtube.com/embed/NGT2rXsAqkE?autoplay=1&mute=1&loop=1&playlist=NGT2rXsAqkE&controls=0&modestbranding=1&rel=0&playsinline=1" title="Zenva Private Onsen & Spa" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe></div>
   </div>
 </section>
-<script>
-(function(){
-  var vids = Array.prototype.slice.call(document.querySelectorAll("#reelsGrid video"));
-  if(!vids.length) { return; }
-  if(!('IntersectionObserver' in window)){
-    vids.forEach(function(v){ v.play().catch(function(){}); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){ entry.target.play().catch(function(){}); }
-        else { entry.target.pause(); }
-      });
-    }, {threshold: 0.25});
-    vids.forEach(function(v){ io.observe(v); });
-  }
-})();
-</script>
 <section class="section" id="reviews">
   <div class="section-head"><span class="eyebrow">In Their Words &middot; 4.8&#9733; on Google &middot; 267 reviews</span><h2>Loved on Google</h2></div>
   <div class="testimonials" id="reviewsGrid">
