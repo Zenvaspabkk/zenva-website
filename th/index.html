@@ -253,6 +253,35 @@
   @media (max-width:900px){.crosslink-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.crosslink-grid{grid-template-columns:1fr;}}
 
+  /* P2 fallback enquiry form (2026-09-10) — client decision: destination is
+     Netlify Forms (zero extra backend, notifies admin@zenvaspabkk.com once
+     enabled in the Netlify dashboard's Forms settings — a one-time manual
+     step, not something set from code). Placed on the homepage + Location
+     page per client's chosen placement, right alongside the existing
+     LINE/WhatsApp buttons as a fallback, not a replacement. Styled to sit
+     quietly inside the existing "Reserve Your Ritual" contact section rather
+     than looking like a bolted-on separate block. */
+  .enquiry-divider{display:flex; align-items:center; gap:14px; max-width:480px; margin:34px auto 26px; color:var(--ink-soft); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;}
+  .enquiry-divider::before, .enquiry-divider::after{content:""; flex:1; height:1px; background:var(--line);}
+  .enquiry-form{max-width:480px; margin:0 auto; text-align:left; background:#fff; border:1px solid var(--line); border-radius:8px; padding:26px 24px;}
+  .enquiry-form .ef-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;}
+  .enquiry-form .ef-field{margin-bottom:14px;}
+  .enquiry-form .ef-row .ef-field{margin-bottom:0;}
+  .enquiry-form label{display:block; font-size:12px; font-weight:700; color:var(--ink-soft); margin-bottom:6px;}
+  .enquiry-form input, .enquiry-form select, .enquiry-form textarea{width:100%; font:inherit; font-size:13.5px; color:var(--ink); border:1px solid var(--line); border-radius:var(--radius); padding:10px 12px; background:var(--cream-soft);}
+  .enquiry-form input:focus, .enquiry-form select:focus, .enquiry-form textarea:focus{outline:2px solid var(--gold); outline-offset:1px; background:#fff;}
+  .enquiry-form textarea{resize:vertical; min-height:70px;}
+  .enquiry-form .ef-hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+  .enquiry-form .ef-submit{width:100%; font-family:inherit; font-size:13px; font-weight:800; letter-spacing:.01em; padding:12px 18px; border-radius:var(--radius); background:var(--ink); color:var(--cream); border:none; cursor:pointer;}
+  .enquiry-form .ef-submit:hover{opacity:.9;}
+  .enquiry-form .ef-submit:disabled{opacity:.6; cursor:not-allowed;}
+  .enquiry-form .ef-note{font-size:11px; color:var(--ink-soft); margin-top:10px; text-align:center;}
+  .ef-status{max-width:480px; margin:0 auto; text-align:center; padding:22px 20px; border-radius:8px; border:1px solid var(--line); background:#fff; display:none;}
+  .ef-status.show{display:block;}
+  .ef-status.ok{border-color:var(--gold); background:var(--cream-soft);}
+  .ef-status p{font-size:13.5px; color:var(--ink); line-height:1.6;}
+  @media (max-width:520px){.enquiry-form .ef-row{grid-template-columns:1fr;}}
+
 
   .ck-banner{position:fixed; left:0; right:0; bottom:0; z-index:200; background:var(--ink); color:var(--cream); padding:18px 24px; box-shadow:0 -6px 24px rgba(0,0,0,.25); display:none; }
   .ck-banner.show{display:block;}
@@ -925,6 +954,58 @@
 </svg></span><span class="bb-txt"><span class="bb-main">จองเลย</span><span class="bb-sub">ผ่าน LINE</span></span></a><a class="btn-book btn-book-outline" href="https://wa.me/66802629191?text=Hi%20Zenva%2C%20I%27d%20like%20to%20book%20a%20private%20onsen%20session." target="_blank" rel="noopener"><span class="bb-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M4 5.5C4 4.67 4.67 4 5.5 4h13c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5H9l-4 3.5v-3.5H5.5C4.67 16 4 15.33 4 14.5v-9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
 </svg></span><span class="bb-txt"><span class="bb-main">จองเลย</span><span class="bb-sub">ผ่าน WhatsApp</span></span></a></div>
+  <div class="enquiry-divider">ต้องการติดต่อทางอีเมล?</div>
+<form class="enquiry-form" id="efForm-home-th" name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="enquiry">
+  <p class="ef-hp"><label>Leave this field blank: <input name="bot-field"></label></p>
+  <p style="font-size:12.5px; color:var(--ink-soft); margin-bottom:16px;">กรอกรายละเอียดของคุณด้านล่าง แล้วเราจะตอบกลับในช่วงเวลาทำการ (12:00–00:00 น.)</p>
+  <div class="ef-row">
+    <div class="ef-field"><label for="efName-home-th">ชื่อ</label><input id="efName-home-th" type="text" name="name" placeholder="ชื่อของคุณ" required></div>
+    <div class="ef-field"><label for="efContact-home-th">เบอร์โทร / LINE ID / อีเมล</label><input id="efContact-home-th" type="text" name="contact" placeholder="เราจะติดต่อคุณได้ทางไหน?" required></div>
+  </div>
+  <div class="ef-row">
+    <div class="ef-field"><label for="efDate-home-th">วันที่ต้องการเข้าใช้บริการ (ถ้ามี)</label><input id="efDate-home-th" type="date" name="preferred_date"></div>
+    <div class="ef-field"><label for="efInterest-home-th">สนใจบริการใด</label><select id="efInterest-home-th" name="interest"><option value="ยังไม่แน่ใจ">ยังไม่แน่ใจ</option><option value="ห้องออนเซ็นส่วนตัว">ห้องออนเซ็นส่วนตัว</option><option value="สปาคู่รัก">สปาคู่รัก</option><option value="นวดและทรีตเมนต์สปา">นวดและทรีตเมนต์สปา</option><option value="สมาชิก">สมาชิก</option></select></div>
+  </div>
+  <div class="ef-field"><label for="efMsg-home-th">ข้อความเพิ่มเติม (ถ้ามี)</label><textarea id="efMsg-home-th" name="message" placeholder="มีอะไรอยากแจ้งให้เราทราบเพิ่มเติมไหม?"></textarea></div>
+  <button class="ef-submit" type="submit">ส่งข้อความสอบถาม</button>
+</form>
+<div class="ef-status" id="efStatus-home-th"></div>
+<script>
+(function(){
+  var form = document.getElementById("efForm-home-th");
+  var status = document.getElementById("efStatus-home-th");
+  if(!form || !status) return;
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var btn = form.querySelector(".ef-submit");
+    var originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "กำลังส่ง…";
+    var data = new FormData(form);
+    var encoded = [];
+    data.forEach(function(value, key){ encoded.push(encodeURIComponent(key) + "=" + encodeURIComponent(value)); });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encoded.join("&")
+    }).then(function(res){
+      if(res.ok){
+        form.style.display = "none";
+        status.className = "ef-status show ok";
+        status.innerHTML = "<p>ขอบคุณค่ะ เราได้รับข้อความสอบถามของคุณแล้ว และจะติดต่อกลับในช่วงเวลาทำการ (12:00–00:00 น.)</p>";
+      } else {
+        throw new Error("Form submission failed");
+      }
+    }).catch(function(){
+      status.className = "ef-status show";
+      status.innerHTML = "<p>เกิดข้อผิดพลาดในการส่ง กรุณาติดต่อเราโดยตรงผ่าน LINE หรือ WhatsApp ด้านบน หรือโทร <a href=\"tel:+66802629191\" style=\"color:var(--gold-text); font-weight:700;\">+66 80 262 9191</a></p>";
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    });
+  });
+})();
+</script>
 </section>
 
 

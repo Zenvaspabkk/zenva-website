@@ -253,6 +253,35 @@
   @media (max-width:900px){.crosslink-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.crosslink-grid{grid-template-columns:1fr;}}
 
+  /* P2 fallback enquiry form (2026-09-10) — client decision: destination is
+     Netlify Forms (zero extra backend, notifies admin@zenvaspabkk.com once
+     enabled in the Netlify dashboard's Forms settings — a one-time manual
+     step, not something set from code). Placed on the homepage + Location
+     page per client's chosen placement, right alongside the existing
+     LINE/WhatsApp buttons as a fallback, not a replacement. Styled to sit
+     quietly inside the existing "Reserve Your Ritual" contact section rather
+     than looking like a bolted-on separate block. */
+  .enquiry-divider{display:flex; align-items:center; gap:14px; max-width:480px; margin:34px auto 26px; color:var(--ink-soft); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;}
+  .enquiry-divider::before, .enquiry-divider::after{content:""; flex:1; height:1px; background:var(--line);}
+  .enquiry-form{max-width:480px; margin:0 auto; text-align:left; background:#fff; border:1px solid var(--line); border-radius:8px; padding:26px 24px;}
+  .enquiry-form .ef-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;}
+  .enquiry-form .ef-field{margin-bottom:14px;}
+  .enquiry-form .ef-row .ef-field{margin-bottom:0;}
+  .enquiry-form label{display:block; font-size:12px; font-weight:700; color:var(--ink-soft); margin-bottom:6px;}
+  .enquiry-form input, .enquiry-form select, .enquiry-form textarea{width:100%; font:inherit; font-size:13.5px; color:var(--ink); border:1px solid var(--line); border-radius:var(--radius); padding:10px 12px; background:var(--cream-soft);}
+  .enquiry-form input:focus, .enquiry-form select:focus, .enquiry-form textarea:focus{outline:2px solid var(--gold); outline-offset:1px; background:#fff;}
+  .enquiry-form textarea{resize:vertical; min-height:70px;}
+  .enquiry-form .ef-hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+  .enquiry-form .ef-submit{width:100%; font-family:inherit; font-size:13px; font-weight:800; letter-spacing:.01em; padding:12px 18px; border-radius:var(--radius); background:var(--ink); color:var(--cream); border:none; cursor:pointer;}
+  .enquiry-form .ef-submit:hover{opacity:.9;}
+  .enquiry-form .ef-submit:disabled{opacity:.6; cursor:not-allowed;}
+  .enquiry-form .ef-note{font-size:11px; color:var(--ink-soft); margin-top:10px; text-align:center;}
+  .ef-status{max-width:480px; margin:0 auto; text-align:center; padding:22px 20px; border-radius:8px; border:1px solid var(--line); background:#fff; display:none;}
+  .ef-status.show{display:block;}
+  .ef-status.ok{border-color:var(--gold); background:var(--cream-soft);}
+  .ef-status p{font-size:13.5px; color:var(--ink); line-height:1.6;}
+  @media (max-width:520px){.enquiry-form .ef-row{grid-template-columns:1fr;}}
+
 
   .ck-banner{position:fixed; left:0; right:0; bottom:0; z-index:200; background:var(--ink); color:var(--cream); padding:18px 24px; box-shadow:0 -6px 24px rgba(0,0,0,.25); display:none; }
   .ck-banner.show{display:block;}
