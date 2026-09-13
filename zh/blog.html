@@ -680,7 +680,7 @@
   var COOKIE_DAYS = 180; // re-ask roughly every 6 months, per PDPA good-practice guidance
   var GA4_ID = "G-0RNSHPLBX5";
   var META_PIXEL_ID = "1046174144821584";
-  var LINE_TAG_ID = "REPLACE_ME_LINE_TAG_ID";
+  var LINE_TAG_ID = "3976448c-b051-4c7d-b206-fdc10caae8eb";
 
   function getCookie(name){
     var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
@@ -797,6 +797,7 @@
       var channel = el.getAttribute("data-book-channel");
       if(window.gtag) gtag('event', 'book_now_click', { method: channel });
       if(window.fbq) fbq('track', 'Contact', { content_name: 'book_now_' + channel.toLowerCase() });
+      if(window._lt) _lt('send', 'cv', { type: 'book_now_click' }, [LINE_TAG_ID]);
     });
   });
 })();

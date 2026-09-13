@@ -660,7 +660,7 @@
   var COOKIE_DAYS = 180; // re-ask roughly every 6 months, per PDPA good-practice guidance
   var GA4_ID = "G-0RNSHPLBX5";
   var META_PIXEL_ID = "1046174144821584";
-  var LINE_TAG_ID = "REPLACE_ME_LINE_TAG_ID";
+  var LINE_TAG_ID = "3976448c-b051-4c7d-b206-fdc10caae8eb";
 
   function getCookie(name){
     var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
@@ -710,12 +710,20 @@
   }
   function loadLineTag(){
     if(!LINE_TAG_ID || LINE_TAG_ID.indexOf("REPLACE_ME") === 0) return;
-    // Placeholder loader — replace with the real snippet LINE Tag Manager provides
-    // once the LINE Tag is created (see analytics setup guide).
+    // Real LINE Tag base code (added 2026-09-13), from LINE Official Account
+    // Manager (manager.line.biz -> Home -> Tracking). Wrapped in this function
+    // rather than a static <head> tag so it only loads after marketing
+    // consent — same PDPA-consent gating as GA4/Meta Pixel above.
+    window._ltq = window._ltq || [];
+    window._lt = window._lt || function(){ window._ltq.push(arguments); };
+    var h = location.protocol === "https:" ? "https://d.line-scdn.net" : "http://d.line-cdn.net";
     var s = document.createElement("script");
     s.async = true;
-    s.src = "https://tr.line.me/tag.js?id=" + LINE_TAG_ID;
-    document.head.appendChild(s);
+    s.src = h + "/n/line_tag/public/release/v1/lt.js";
+    var t = document.getElementsByTagName("script")[0];
+    t.parentNode.insertBefore(s, t);
+    _lt("init", { customerType: "account", tagId: LINE_TAG_ID });
+    _lt("send", "pv", [LINE_TAG_ID]);
   }
 
   function applyConsent(consent){
@@ -780,6 +788,7 @@
       var channel = el.getAttribute("data-book-channel");
       if(window.gtag) gtag('event', 'book_now_click', { method: channel });
       if(window.fbq) fbq('track', 'Contact', { content_name: 'book_now_' + channel.toLowerCase() });
+      if(window._lt) _lt('send', 'cv', { type: 'book_now_click' }, [LINE_TAG_ID]);
     });
   });
 })();
